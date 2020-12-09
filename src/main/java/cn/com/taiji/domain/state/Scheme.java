@@ -1,8 +1,5 @@
 package cn.com.taiji.domain.state;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -10,8 +7,6 @@ import javax.persistence.*;
  *
  */
 
-@Getter
-@Setter
 @Entity
 @Table(name="SCHEME")
 public class Scheme {
@@ -30,6 +25,30 @@ public class Scheme {
 
     public Scheme(String name, String content) {
         this.name = name;
+        this.content = content;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
         this.content = content;
     }
 }

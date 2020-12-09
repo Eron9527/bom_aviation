@@ -10,6 +10,14 @@
     <title>Document</title>
 </head>
 <body>
-<p th:text="'写入数据成功'">hello thymeleaf</p>
+    <table >
+
+        <tr th:each="maps:${types}">
+            <td th:each="entry:${maps}" th:text="${entry.value}"></td>
+            <td th:each="entry:${maps}" th:text="${entry.value}"></td>
+            <td th:each="entry:${maps}" th:text="${entry.value}"></td>
+        </tr>
+
+</table>
 </body>
 </html>

@@ -1,8 +1,5 @@
 package cn.com.taiji.domain.state;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -11,8 +8,6 @@ import javax.persistence.*;
  *
  */
 
-@Getter
-@Setter
 @Entity
 @Table(name="DATA_CATALOG")  // 指标分组类别，含监控项/指标/
 public class DataCatalog {
@@ -48,6 +43,38 @@ public class DataCatalog {
     public DataCatalog(String info, NormGroupType type, Integer rank) {
         this.info = info;
         this.type = type;
+        this.rank = rank;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public NormGroupType getType() {
+        return type;
+    }
+
+    public void setType(NormGroupType type) {
+        this.type = type;
+    }
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 }

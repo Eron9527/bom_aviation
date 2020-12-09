@@ -1,8 +1,5 @@
 package cn.com.taiji.domain.state;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -10,8 +7,6 @@ import javax.persistence.*;
  *                具体到某个设备的监控， 某个设备的监控状态，以及具体项的分数。
  *                通过监控项数据类型和组成公式， 来计算所监控的某项指标的评分。
  */
-@Getter
-@Setter
 @Entity
 @Table(name="DATA_TYPE")
 public class DataType {
@@ -57,6 +52,54 @@ public class DataType {
         this.code = code;
         this.info = info;
         this.type = type;
+        this.rank = rank;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public DataCatalog getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(DataCatalog catalog) {
+        this.catalog = catalog;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public ValueType getType() {
+        return type;
+    }
+
+    public void setType(ValueType type) {
+        this.type = type;
+    }
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
         this.rank = rank;
     }
 }

@@ -1,8 +1,5 @@
 package cn.com.taiji.domain.state;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 /**
@@ -11,8 +8,6 @@ import javax.persistence.*;
  *              打分，带得到指标项的分数，再由各个指标项所占的比例组合出最后的得分。
  */
 
-@Getter
-@Setter
 @Entity
 @Table(name="BASE_NORM_TYPE")
 public class BaseNormType {
@@ -41,6 +36,54 @@ public class BaseNormType {
         this.info = info;
         this.formula = formula;
         this.rank = rank;
+        this.formulaDesc = formulaDesc;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public DataCatalog getCatalog() {
+        return catalog;
+    }
+
+    public void setCatalog(DataCatalog catalog) {
+        this.catalog = catalog;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getFormula() {
+        return formula;
+    }
+
+    public void setFormula(String formula) {
+        this.formula = formula;
+    }
+
+    public Integer getRank() {
+        return rank;
+    }
+
+    public void setRank(Integer rank) {
+        this.rank = rank;
+    }
+
+    public String getFormulaDesc() {
+        return formulaDesc;
+    }
+
+    public void setFormulaDesc(String formulaDesc) {
         this.formulaDesc = formulaDesc;
     }
 }

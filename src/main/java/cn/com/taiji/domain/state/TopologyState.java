@@ -1,12 +1,7 @@
 package cn.com.taiji.domain.state;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
-@Getter
-@Setter
 @Entity
 @Table(name="TOPOLOGY_STATE")
 public class TopologyState {
@@ -40,5 +35,45 @@ public class TopologyState {
         private DevType(String info) {
             this.info = info;
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public DevType getType() {
+        return type;
+    }
+
+    public void setType(DevType type) {
+        this.type = type;
+    }
+
+    public boolean isConnectState() {
+        return connectState;
+    }
+
+    public void setConnectState(boolean connectState) {
+        this.connectState = connectState;
+    }
+
+    public int getTransSpeed() {
+        return transSpeed;
+    }
+
+    public void setTransSpeed(int transSpeed) {
+        this.transSpeed = transSpeed;
+    }
+
+    public String getDevAddress() {
+        return devAddress;
+    }
+
+    public void setDevAddress(String devAddress) {
+        this.devAddress = devAddress;
     }
 }

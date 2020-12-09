@@ -1,8 +1,5 @@
 package cn.com.taiji.domain.state;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 
 
@@ -11,8 +8,6 @@ import javax.persistence.*;
  */
 
 
-@Getter
-@Setter
 @Entity
 @Table(name="MANAGE_SCHEME_NORM")
 public class NormOfScheme {
@@ -39,6 +34,46 @@ public class NormOfScheme {
         this.scheme = scheme;
         this.norm = norm;
         this.weight = weight;
+        this.usedFlag = usedFlag;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Scheme getScheme() {
+        return scheme;
+    }
+
+    public void setScheme(Scheme scheme) {
+        this.scheme = scheme;
+    }
+
+    public BaseNormType getNorm() {
+        return norm;
+    }
+
+    public void setNorm(BaseNormType norm) {
+        this.norm = norm;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    public boolean isUsedFlag() {
+        return usedFlag;
+    }
+
+    public void setUsedFlag(boolean usedFlag) {
         this.usedFlag = usedFlag;
     }
 }
