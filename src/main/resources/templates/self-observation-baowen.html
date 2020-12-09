@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--[if lt IE 9]>
+	    <script src="js/html5shiv.min.js"></script>
+	    <script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="js/echarts-all.js"></script>
+	</head>
+
+	<body class="home_page">
+		<div class="main">
+
+			<!-- header start -->
+			<div class="top clearfix">
+				<div class="logo_warp">
+					<i class="txt">民航气象业务数字化管理平台</i>
+				</div>
+				<div class="nav">
+					<ul class="fl">
+						<li><a href="index.html" class="active">首页</a></li>
+						<!---->
+						<!--
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>-->
+					</ul>
+					<div class="sys_bar fr">
+						<a class="user" href=""><img src="images/user.png" />admin</a>
+						<img class="line1" src="images/line1.png" />
+						<a href=""><img src="images/sys.png" /></a>
+						<img class="line2" src="images/line1.png" />
+						<a href=""><img src="images/exit.png" /></a>
+					</div>
+				</div>
+			</div>
+			<!-- header end -->
+
+			<!-- container start -->
+			<div class="container clearfix m-observationl">
+				<!-- left start -->
+				<div class="left fl">
+					<div class="txtbox">
+						<div class="txt">报文总得分：<em>90</em></div>
+						<ul class="ul-selfl">
+							<li>总分计算：<em>100+S1*50%+S2*20%+S3*30%=90</em></li>
+							<li>指标分组：<span>报文</span></li>
+						</ul>
+					</div>
+					<div class="item_title">
+						<i class="txt">得分占比图</i>
+					</div>
+						<div id="chat1" class="chat4" ></div>
+				</div>
+				<!-- left end -->
+				<!-- right start -->
+				<div class="right fr">
+					<div class="item_title">
+						<i class="txt">参与打分指标</i>
+					</div>
+					<div class="m-tablel">
+						<div class="item">
+							<h3 class="tit">报文实时数量监控：S1</h3>
+							<div class="table">
+								<div class="topbox">
+									<span class="s1">监控项编码</span>
+									<span class="s2">监控项名称</span>
+									<span class="s3">数据类型</span>
+									<span class="s4">打分规则</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_FC_AMOUNT</span>
+									<span class="s2">FC报文实时应到数量</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_FT_AMOUNT</span>
+									<span class="s2">FT报文实时应到数量</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_SA_AMOUNT</span>
+									<span class="s2">SA报文实时应到数量</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+									<div class="box">
+									<span class="s1">MESSAGE_SP_AMOUNT</span>
+									<span class="s2">SP报文实时应到数量</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box last box1">
+									<span class="s1">计算公式：</span>
+									<span class="s2"><em>=MESSAGE_FC_AMOUNT&&MESSAGE_FT_AMOUNT&&
+									MESSAGE_SA_AMOUNT&&MESSAGE_SP_AMOUNT</em></span>
+									<span class="s3">得分</span>
+									<span class="s4">0</span>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<h3 class="tit">迟到报监控状态：S2</h3>
+							<div class="table">
+								<div class="topbox">
+									<span class="s1">监控项编码</span>
+									<span class="s2">监控项名称</span>
+									<span class="s3">数据类型</span>
+									<span class="s4">打分规则</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_SA_LATE</span>
+									<span class="s2">SA迟到报</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_SA_HALF_LATE</span>
+									<span class="s2">SA半点迟到报</span>
+									<span class="s3">定量</span>
+									<span class="s4 red">告警</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_FT_LATE</span>
+									<span class="s2">FT迟到报</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_FC_LATE</span>
+									<span class="s2">FC迟到报</span>
+									<span class="s3">定量</span>
+									<span class="s4 red">告警</span>
+								</div>
+								<div class="box last box1">
+									<span class="s1">计算公式：</span>
+									<span class="s2"><em>=MESSAGE_SA_LATE&&MESSAGE_SA_HALF_LATE&&
+									MESSAGE_FC_LATE&&MESSAGE_FT_LATE</em></span>
+									<span class="s3">得分</span>
+									<span class="s4">-50</span>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<h3 class="tit">错误报监控状态：S3</h3>
+							<div class="table">
+								<div class="topbox">
+									<span class="s1">监控项编码</span>
+									<span class="s2">监控项名称</span>
+									<span class="s3">数据类型</span>
+									<span class="s4">打分规则</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_DATA_AMOUNT</span>
+									<span class="s2">数据库数量</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_CALL_COUNT</span>
+									<span class="s2">总拨打电话次数</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box">
+									<span class="s1">MESSAGE_FILE_AMOUNT</span>
+									<span class="s2">留底文件数量</span>
+									<span class="s3">定量</span>
+									<span class="s4 green">正常</span>
+								</div>
+								<div class="box last box1">
+									<span class="s1">计算公式：</span>
+									<span class="s2"><em>MESSAGE_DATA_AMOUNT&&
+									MESSAGE_CALL_COUNT=0;=MESSAGE_FILE_AMOUNT</em></span>
+									<span class="s3">得分</span>
+									<span class="s4">0</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- right end -->
+			</div>
+			<!-- container end -->
+
+		</div>
+	</body>
+	<script type="text/javascript">
+	
+	
+		// 初始化自观
+		var myChart = echarts.init(document.getElementById('chat1'));
+		var options={
+			title: {
+				left: 'center'
+			},
+			tooltip: {
+				trigger: 'item',
+				formatter: '{a} <br/>{b} : {c} ({d}%)'
+			},
+			legend: {
+				orient: 'horizontal',
+				left:'left',
+				textStyle: {
+				   color: "white",
+				},
+				data: ['S1', 'S2', 'S3']
+			},
+			series: [
+				{
+					name: '访问来源',
+					type: 'pie',
+					radius: '80%',
+					center: ['30%', '60%'],
+					data: [
+						{value: 535, name: 'S1'},
+						{value: 310, name: 'S2'},
+						{value: 234, name: 'S3'},
+					
+					],
+					emphasis: {
+						itemStyle: {
+							shadowBlur: 10,
+							shadowOffsetX: 0,
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}
+			]
+		};
+		myChart.setOption(options);
+		
+		</script>
+</html>

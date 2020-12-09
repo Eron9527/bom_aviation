@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--[if lt IE 9]>
+	    <script src="../js/html5shiv.min.js"></script>
+	    <script src="../js/respond.min.js"></script>
+	
+	<![endif]-->
+
+		
+		<script type="text/javascript" src="js/echarts-all.js"></script>
+		<script src="js/tuopu.js"></script>
+		<script type="text/javascript" src="js/zhexian.js"></script>
+		<script src="js/vis-network.min.js"></script>
+	
+	</head>
+
+	<body class="home_page">
+		<div class="main">
+
+			<!-- header start -->
+			<div class="top clearfix">
+				<div class="logo_warp">
+					<i class="txt">民航气象业务数字化管理平台</i>
+				</div>
+				<div class="nav">
+					<ul class="fl">
+						<li><a href="" class="active">首页</a></li>
+						<!---->
+						<!--
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>
+						<li><a href="">自观数据流</a></li>-->
+					</ul>
+					<div class="sys_bar fr">
+						<a class="user" href=""><img src="images/user.png" />admin</a>
+						<img class="line1" src="images/line1.png" />
+						<a href=""><img src="images/sys.png" /></a>
+						<img class="line2" src="images/line1.png" />
+						<a href=""><img src="images/exit.png" /></a>
+					</div>
+				</div>
+			</div>
+			<!-- header end -->
+
+			<!-- container start -->
+			<div class="container clearfix">
+				<!-- left start -->
+				<div class="left fl">
+					<div class="item_title">
+						<i class="txt">得分</i>
+					</div>
+					<div class="total_source">总得分<p>90</p>
+					</div>
+					<ul class="source_list">
+						<li>网络连接状态：<i>90 &nbsp (20%)</i></li>
+						<li>自观得分：<i>90&nbsp (20%)</i></li>
+						<li>报文得分：<i>90&nbsp (20%)</i></li>
+						<li>雷达图得分：<i>90&nbsp (20%)</i></li>
+						<li>卫星图得分：<i>90&nbsp (20%)</i></li>
+					</ul>
+
+					<div class="item_title">
+						<i class="txt">报文</i>
+						<span id="baowentime" class="update_time"></span>
+						<a href="self-observation-baowen.html">
+							<span class="get_source">得分：90</span>
+						</a>
+					</div>
+					<div class="baowen">
+						<table>
+							<thead>
+								<tr>
+									<th>站点</th>
+									<th>SA</th>
+									<th>FC</th>
+									<th>FT</th>
+									<th>其他</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>ZYTX</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+								</tr>
+								<tr>
+									<td>ZYHB</td>
+									<td>
+										<div class="red"></div>
+									</td>
+									<td>
+										<div class="red"></div>
+									</td>
+									<td>
+										<div class="red"></div>
+									</td>
+									<td>
+										<div class="red"></div>
+									</td>
+								</tr>
+								<tr>
+									<td>ZYTL</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+								</tr>
+								<tr>
+									<td>ZYCC</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+									<td>
+										<div class="green"></div>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- left end -->
+				<!-- middle start -->
+				<div class="middle fl">
+					<div class="item_title">
+						<i class="txt">网络连接状态：</i>
+						<span id="tuoputime" class="update_time"></span>
+						<span class="get_source">得分：50</span>
+					</div>
+					<div id="tuopu" class="tuopu"></div>
+				</div>
+				<!-- middle end -->
+				<!-- right start -->
+				<div class="right fr">
+					<div class="item_title">
+						<i class="txt">自观</i>
+						<a href="source.html">
+					
+							<span class="update_time">更新时间：</span>
+							<span id="awostime" class="update_time"></span>
+						</a>
+						<a href="self-observation.html">
+							<span class="get_source">得分：90</span>
+						</a>
+						
+					</div>
+					<div id="chat1" class="chat1"></div>
+					<div class="item_title">
+						<i class="txt">雷达图</i>
+						<span id="radartime" class="update_time"></span>
+						<a href="self-observation-radar.html">
+							<span class="get_source">得分：90</span>
+						</a>
+					</div>
+					<div id="chat2" class="chat2"></div>
+					<div class="item_title">
+						<i class="txt">卫星图</i>
+						<span id="sateltime" class="update_time"></span>
+						<a href="self-observation-satel.html">
+							<span class="get_source">得分：90</span>
+						</a>
+					</div>
+					<div id="chat3" class="chat3"></div>
+				</div>
+				<!-- right end -->
+			</div>
+			<!-- container end -->
+
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+	
+		// 初始化自观
+		var myChart = echarts.init(document.getElementById('chat1'));
+		var options={
+			//定义一个标题
+			title:{
+				text:'数量',
+				textStyle: {
+					fontSize: 16,
+					fontWeight: 400,
+					color: 'white',
+					top: -5,
+
+				},
+
+			},
+			grid:{          //显示数据的图表位于当前canvas的坐标轴
+                x:40,
+                y:40,
+                x2:40,
+                y2:40,
+                borderWidth:0
+            },
+			color: ['#FA660A', '#0E76E4', '#8923F1', '#FF0000', "#339966"],
+			legend:{
+				textStyle: {
+					color: 'white',
+					fontSize: 12,
+				},
+				data:['沈阳','哈尔滨','大连','长春']
+			},
+			//X轴设置
+			xAxis:{
+				splitLine:{show: false}, 
+				 axisLabel: {
+					show: true,
+					inside: false,
+					align: 'left',
+					// margin: 4,
+					textStyle: {
+						color: 'white',
+						fontSize: '14'
+					}
+				},
+				data:['0','2','4','6','8','10','12','14','16','18','20','22','24']
+			},
+			yAxis:{
+				splitLine:{
+					show:true,
+					lineStyle:{
+						color: '#3876c2',
+						type:'dashed'
+					}
+				},
+				axisTick:{ //y轴刻度线
+					show:false
+				},
+				axisLine:{ //y轴
+					show:false,
+					length: 3,
+				},
+				axisLabel: {
+					show: true,
+					inside: false,
+					align: 'left',
+					// margin: 4,
+					textStyle: {
+						color: 'white',
+						fontSize: '14'
+					}
+				},
+				axisTick: {
+					show: true,
+				}, 
+				
+				data:['0','15','30','45','60']
+			},
+			//name=legend.data的时候才能显示图例
+			series:[
+			{
+				name:'哈尔滨',
+				type:'line',
+				data:['50','46','48','40','42','44','46','48','40','52','54','52','54'],
+			},
+			{
+				name:'长春',
+				type:'line',
+				data:['50','52','54','46','48','46','48','40','52','54','40','42','44'],
+				
+			},
+			{
+				name:'沈阳',
+				type:'line',
+				data:['46','48','40','52','54','50','52','54','46','48','40','42','44'],
+				
+			},
+			{
+				name:'大连',
+				type:'line',
+				data:['43','46','41','40','52','54','52','54','43','48','42','42','54'],
+				
+			}
+			],
+	
+
+		};
+		myChart.setOption(options);
+		
+		
+		// 初始化雷达
+		var myChart2 = echarts.init(document.getElementById('chat2'));
+		var options={
+					//定义一个标题
+			title:{
+				text:'数量',
+				textStyle: {
+					fontSize: 16,
+					fontWeight: 400,
+					color: 'white',
+					top: -5
+
+				},
+
+			},
+			grid:{          //显示数据的图表位于当前canvas的坐标轴
+                x:40,
+                y:40,
+                x2:40,
+                y2:40,
+                borderWidth:0
+            },
+			color: ['#FA660A', '#0E76E4', '#8923F1', '#FF0000', "#339966"],
+			legend:{
+				textStyle: {
+					color: 'white',
+					fontSize: 12,
+				},
+				data:['沈阳','哈尔滨','大连','长春']
+			},
+			//X轴设置
+			xAxis:{
+				splitLine:{show: false},   //去除网格线
+				 axisLabel: {
+					show: true,
+					inside: false,
+					align: 'left',
+					// margin: 4,
+					textStyle: {
+						color: 'white',
+						fontSize: '14'
+					}
+				},
+				data:['0','2','4','6','8','10','12','14','16','18','20','22','24']
+			},
+			yAxis:{
+				
+				splitLine:{
+					show:true,
+					
+					lineStyle:{
+						color: '#3876c2',
+						type:'dashed'
+					}
+				},
+				axisTick:{ //y轴刻度线
+					show:false
+				},
+				axisLine:{ //y轴
+					show:false,
+					length: 3,
+				},
+				axisLabel: {
+					show: true,
+					inside: false,
+					align: 'left',
+					// margin: 4,
+					textStyle: {
+						color: 'white',
+						fontSize: '14'
+					}
+				},
+				 axisTick: {
+					show: true,
+				}, 
+				data:['0','15','30','45','60']
+			},
+			//name=legend.data的时候才能显示图例
+			series:[
+			{
+				name:'哈尔滨',
+				type:'line',
+				data:['40','36','38','30','42','44','46','48','40','42','44','42','42'],
+			},
+			{
+				name:'长春',
+				type:'line',
+				data:['40','42','44','46','48','46','48','40','42','44','40','42','41'],
+				
+			},
+			{
+				name:'沈阳',
+				type:'line',
+				data:['46','48','40','42','44','40','42','44','46','48','40','42','40'],
+				
+			},
+			{
+				name:'大连',
+				type:'line',
+				data:['43','46','41','40','42','44','42','44','43','48','42','42','48'],
+				
+			}
+			],
+
+		};
+		myChart2.setOption(options);
+		
+		
+		// 初始化卫星
+		var myChart3 = echarts.init(document.getElementById('chat3'));
+		var options={
+					//定义一个标题
+			title:{
+				text:'数量',
+				textStyle: {
+					fontSize: 16,
+					fontWeight: 400,
+					color: 'white',
+					top: -5
+
+				},
+
+			},
+			grid:{          //显示数据的图表位于当前canvas的坐标轴
+                x:40,
+                y:40,
+                x2:40,
+                y2:40,
+                borderWidth:0
+            },
+			color: ['#FA660A', '#0E76E4', '#8923F1', '#FF0000', "#339966"],
+			legend:{
+				textStyle: {
+					color: 'white',
+					fontSize: 12,
+				},
+				data:[]
+			},
+			//X轴设置
+			xAxis:{
+				splitLine:{show: false}, 
+				 axisLabel: {
+					show: true,
+					inside: false,
+					align: 'left',
+					// margin: 4,
+					textStyle: {
+						color: 'white',
+						fontSize: '14'
+					}
+				},
+				data:['0','2','4','6','8','10','12','14','16','18','20','22','24']
+			},
+			yAxis:{
+				splitLine:{
+					show:true,
+					lineStyle:{
+						color: '#3876c2',
+						type:'dashed'
+					}
+				},   //去除网格线
+				axisTick:{ //y轴刻度线
+					show:false
+				},
+				axisLine:{ //y轴
+					show:false,
+					length: 3,
+				},
+				axisLabel: {
+					show: true,
+					inside: false,
+					align: 'left',
+					// margin: 4,
+					textStyle: {
+						color: 'white',
+						fontSize: '14'
+					}
+				},
+				 axisTick: {
+					show: true,
+				}, 
+				data:['0','15','30','45','60']
+			},
+			//name=legend.data的时候才能显示图例
+			series:[{
+				name:'沈阳',
+				color: '#759aa0',
+				type:'line',
+				data:['50','52','54','46','48','40','42','44','46','48','40','52','54'],
+				
+			}],
+		};
+		myChart3.setOption(options);
+		
+		
+		var interval = setInterval("startTime()",1000);
+
+
+				function startTime() {
+                     var today = new Date(); //定义日期对象   
+                     var yyyy = today.getFullYear(); //通过日期对象的getFullYear()方法返回年    
+                     var MM = today.getMonth() + 1; //通过日期对象的getMonth()方法返回年    
+                     var dd = today.getDate(); //通过日期对象的getDate()方法返回年     
+                     var hh = today.getHours(); //通过日期对象的getHours方法返回小时   
+                     var mm = today.getMinutes(); //通过日期对象的getMinutes方法返回分钟   
+                     var ss = today.getSeconds(); //通过日期对象的getSeconds方法返回秒   
+                     // 如果分钟或小时的值小于10，则在其值前加0，比如如果时间是下午3点20分9秒的话，则显示15：20：09   
+                     MM = checkTime(MM);
+                     dd = checkTime(dd);
+                     mm = checkTime(mm);
+                     ss = checkTime(ss);
+            
+                     document.getElementById('tuoputime').innerHTML = "更新时间：" + yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+                     document.getElementById('baowentime').innerHTML = "更新时间：" + yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+                     document.getElementById('awostime').innerHTML = "2020-12-06 8:43:01";
+					 document.getElementById('awostime').style.setProperty('color', 'red');
+					 document.getElementById('awostime').style.setProperty('margin-left', '0px');
+                     document.getElementById('radartime').innerHTML = "更新时间：" + yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+                     document.getElementById('sateltime').innerHTML = "更新时间：" + yyyy + "-" + MM + "-" + dd + " " + hh + ":" + mm + ":" + ss;
+                     setTimeout('startTime()', 1000); //每一秒中重新加载startTime()方法 
+                 }
+                 function checkTime(i) {
+                     if (i < 10) {
+                         i = "0" + i;
+                     }
+                     return i;
+                 }
+		
+	</script>
+</html>
