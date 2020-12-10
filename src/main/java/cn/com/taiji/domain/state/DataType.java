@@ -25,6 +25,8 @@ public class DataType {
     private ValueType type;    // 数据类型  包括定量，定性
     @Column(name = "RANK_NUM")
     private Integer rank=0;    // 排序
+    @Transient
+    private Integer score;
 
     public enum ValueType {
         NUM("定量"), BOOL("定性") ;

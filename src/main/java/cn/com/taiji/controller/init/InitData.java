@@ -25,7 +25,7 @@ public class InitData {
         System.out.println("----------开始生成数据---------");
         //initStateDataServicer.initStateData();
         System.out.println("----------生成状态数据结束---------");
-        //initScoreRuleDataServicer.initRuleData();
+        initScoreRuleDataServicer.initRuleData();
         System.out.println("----------生成评分数据结束---------");
 
         return "wel";

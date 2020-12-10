@@ -19,7 +19,6 @@ public class DataTypeServiceImpl implements DataTypeService {
 
     @Override
     public DataType getTypeByCode(String code) {
-
        DataType type =  dataTypeRepo.findByCode(code);
         return type;
     }

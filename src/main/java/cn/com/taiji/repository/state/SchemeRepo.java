@@ -8,4 +8,6 @@ import java.util.List;
 public interface SchemeRepo extends JpaRepository <Scheme, Long> {
 
     List<Scheme> findByName(String name);
+
+    Scheme findByUseFlag(boolean bool);
 }

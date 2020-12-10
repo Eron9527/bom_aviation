@@ -1,5 +1,6 @@
 package cn.com.taiji.controller.state;
 
+import cn.com.taiji.domain.state.BaseNormType;
 import cn.com.taiji.domain.state.DataType;
 import cn.com.taiji.domain.state.MessageState;
 import cn.com.taiji.service.MessageStateService;
@@ -17,11 +18,11 @@ import java.util.Map;
 public class MessageStateController {
 
     @Autowired
-    private MessageStateService messageStateServicer;
+    private MessageStateService messageStateService;
 
     @GetMapping("/getNewMessage")
     public String getNewState(Model model){
-        List<MessageState> messageStateList = messageStateServicer.getNewsState();
+        List<MessageState> messageStateList = messageStateService.getNewsState();
         model.addAttribute("messageStates", messageStateList);
         return "index";
     }
@@ -30,8 +31,17 @@ public class MessageStateController {
     public String getScoreDetail(Model model,String catalogInfo){
         // 获取分组下面的监控指标
         catalogInfo = "报文";
-        Map<String, List<DataType>> types = messageStateServicer.getScoreDetail(catalogInfo);
+        Map<String, List<DataType>> types = messageStateService.getScoreDetail(catalogInfo);
         model.addAttribute("types", types);
+        // 计算公式及监控指标实体
+        Map<String, BaseNormType> formula = messageStateService.getFormula(catalogInfo);
+        model.addAttribute("formula", formula);
+        // 得分（根据计算公式得出结果）
+        Map<String, Integer> score = messageStateService.getBaseNormScore(catalogInfo);
+        model.addAttribute("score", score);
+        //返回每个监控指标所代表的百分比
+        Map<String, Float> scheme= messageStateService.getBaseNormWeight(catalogInfo);
+        model.addAttribute("scheme", scheme);
         return "wel";
     }
 }

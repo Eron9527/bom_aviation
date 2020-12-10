@@ -18,6 +18,8 @@ public class Scheme {
     private String name;
     @Column(name = "CONTENT")
     private String content;
+    @Column(name = "USE_FLAG")
+    private boolean useFlag;
 
     public Scheme() {
 
@@ -50,5 +52,13 @@ public class Scheme {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public boolean isUseFlag() {
+        return useFlag;
+    }
+
+    public void setUseFlag(boolean useFlag) {
+        this.useFlag = useFlag;
     }
 }
