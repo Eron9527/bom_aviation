@@ -27,6 +27,12 @@ public class AwosStateController<add> {
     @Autowired
     private AwosStateService awosStateService;
 
+    /**
+     * @描述   获取最新的首页上面的状态： 报文时boolean ,控制绿色和红色
+     *          其余的时时间和数量
+     * @创建人 Mayu
+     * @创建时间 2020/12/11
+    */
     @GetMapping("/getNewAwos")
     public JsonResult getNewState(Model model){
         List<AwosState> awosStateList = awosStateService.getNewsState();
@@ -38,6 +44,8 @@ public class AwosStateController<add> {
 
     /**
      * @描述 得到监控项
+     *          监控项是点开得分页面后，加载到表格中的数据。 循环加在通过List
+     *          把List<DataType>  加载到表中中</>
      * @创建人 Mayu
      * @创建时间 2020/12/11
     */
@@ -55,6 +63,9 @@ public class AwosStateController<add> {
 
     /**
      * @描述   得到指标实体
+     *             是点击得分后，
+     *             BaseNormType : info 字段： 显示在表头的位置。
+     *                           formula  ：  显示在公式的位置
      * @创建人 Mayu
      * @创建时间 2020/12/11
     */
@@ -71,6 +82,8 @@ public class AwosStateController<add> {
 
     /**
      * @描述    得到分数
+     *              是点击得分后，
+     *      *       key: 跑道现场环境实时状态     value:   score
      * @创建人 Mayu
      * @创建时间 2020/12/11
     */
@@ -87,6 +100,8 @@ public class AwosStateController<add> {
 
     /**
      * @描述    得到百分比方案
+     *              key:  跑道现场环境实时状态     , value : 百分比
+     *
      * @创建人 Mayu
      * @创建时间 2020/12/11
     */
