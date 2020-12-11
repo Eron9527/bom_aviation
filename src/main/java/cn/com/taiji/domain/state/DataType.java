@@ -24,10 +24,12 @@ public class DataType {
     @Column(name = "TYPE")
     private ValueType type;    // 数据类型  包括定量，定性
     @Column(name = "RANK_NUM")
-    private Integer rank=0;    // 排序
-    @Transient
+    private Integer rank=0;
+    @Column(name = "SCORE")    // 应加减分值
     private Integer score;
 
+
+    //  如果定量就是给一百分初始值， 如果定性就是不加
     public enum ValueType {
         NUM("定量"), BOOL("定性") ;
         private String info;
@@ -49,12 +51,13 @@ public class DataType {
 
     }
 
-    public DataType(DataCatalog catalog, String code, String info, ValueType type, Integer rank) {
+    public DataType(DataCatalog catalog, String code, String info, ValueType type, Integer rank, Integer score) {
         this.catalog = catalog;
         this.code = code;
         this.info = info;
         this.type = type;
         this.rank = rank;
+        this.score = score;
     }
 
     public Long getId() {

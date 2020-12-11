@@ -88,23 +88,23 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
 
         if (logs != null && logs.size() > 0){
             awosWarnlog = logs.get(0);
-            DataType type1 = new DataType(awosWarnlog, "AWOS_CT25K_WARN", "CT25K设备状态报警", DataType.ValueType.NUM, 1);
-            DataType type2 = new DataType(awosWarnlog, "AWOS_MITRAS_EX_WARN", "MITRAS发射机报警", DataType.ValueType.NUM, 2);
-            DataType type3 = new DataType(awosWarnlog, "AWOS_MITRAS_RX_WARN", "MITRAS接收机报警", DataType.ValueType.NUM, 3);
-            DataType type4 = new DataType(awosWarnlog, "AWOS_LT31_WARN", "LT31总体状态报警", DataType.ValueType.NUM, 4);
-            DataType type5 = new DataType(awosWarnlog, "AWOS_MOR_WRAN", "MOR（气象光学能见度）状态报警", DataType.ValueType.NUM, 5);
-            DataType type6 = new DataType(awosWarnlog, "AWOS_LT31_EX_WARN", "LT31发射机状态报警", DataType.ValueType.NUM, 6);
-            DataType type7 = new DataType(awosWarnlog, "AWOS_LT31_RX_WARN", "LT31接收机状态报警", DataType.ValueType.NUM, 7);
-            DataType type8 = new DataType(awosWarnlog, "AWOS_LT31_PWD_WARN", "LT31 PWD 状态报警", DataType.ValueType.NUM, 8);
-            DataType type9 = new DataType(awosWarnlog, "AWOS_LM21_WARN", "LM21背景亮度仪报警", DataType.ValueType.NUM, 9);
-            DataType type10 = new DataType(awosWarnlog, "AWOS_FD12_WARN", "FD12设备状态报警", DataType.ValueType.NUM, 10);
-            DataType type11 = new DataType(awosWarnlog, "AWOS_FD12P_WARN", "FD12P设备状态报警", DataType.ValueType.NUM, 11);
-            DataType type12 = new DataType(awosWarnlog, "AWOS_FS11_WARN", "FS11设备状态报警", DataType.ValueType.NUM, 12);
-            DataType type13 = new DataType(awosWarnlog, "AWOS_MILOS500_WARN", "MILOS500自动气象站报警", DataType.ValueType.NUM, 13);
-            DataType type14 = new DataType(awosWarnlog, "AWOS_CBME80B_WARN", "CBME80B设备状态报警", DataType.ValueType.NUM, 14);
-            DataType type15 = new DataType(awosWarnlog, "AWOS_PTB330_WARN", "PTB330气压计模块报警", DataType.ValueType.NUM, 15);
-            DataType type16 = new DataType(awosWarnlog, "AWOS_APOS300_WARN", "APOS300自动站离线报警", DataType.ValueType.NUM, 16);
-            DataType type17 = new DataType(awosWarnlog, "AWOS_TR30_WARN", "TR30大气透射仪报警", DataType.ValueType.NUM, 17);
+            DataType type1 = new DataType(awosWarnlog, "AWOS_CT25K_WARN", "CT25K设备状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type2 = new DataType(awosWarnlog, "AWOS_MITRAS_EX_WARN", "MITRAS发射机报警", DataType.ValueType.NUM, 0, -5);
+            DataType type3 = new DataType(awosWarnlog, "AWOS_MITRAS_RX_WARN", "MITRAS接收机报警", DataType.ValueType.NUM, 0, -5);
+            DataType type4 = new DataType(awosWarnlog, "AWOS_LT31_WARN", "LT31总体状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type5 = new DataType(awosWarnlog, "AWOS_MOR_WRAN", "MOR（气象光学能见度）状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type6 = new DataType(awosWarnlog, "AWOS_LT31_EX_WARN", "LT31发射机状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type7 = new DataType(awosWarnlog, "AWOS_LT31_RX_WARN", "LT31接收机状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type8 = new DataType(awosWarnlog, "AWOS_LT31_PWD_WARN", "LT31 PWD 状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type9 = new DataType(awosWarnlog, "AWOS_LM21_WARN", "LM21背景亮度仪报警", DataType.ValueType.NUM, 0, -5);
+            DataType type10 = new DataType(awosWarnlog, "AWOS_FD12_WARN", "FD12设备状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type11 = new DataType(awosWarnlog, "AWOS_FD12P_WARN", "FD12P设备状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type12 = new DataType(awosWarnlog, "AWOS_FS11_WARN", "FS11设备状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type13 = new DataType(awosWarnlog, "AWOS_MILOS500_WARN", "MILOS500自动气象站报警", DataType.ValueType.NUM, 0, -5);
+            DataType type14 = new DataType(awosWarnlog, "AWOS_CBME80B_WARN", "CBME80B设备状态报警", DataType.ValueType.NUM, 0, -5);
+            DataType type15 = new DataType(awosWarnlog, "AWOS_PTB330_WARN", "PTB330气压计模块报警", DataType.ValueType.NUM, 0, -5);
+            DataType type16 = new DataType(awosWarnlog, "AWOS_APOS300_WARN", "APOS300自动站离线报警", DataType.ValueType.NUM, 0, -5);
+            DataType type17 = new DataType(awosWarnlog, "AWOS_TR30_WARN", "TR30大气透射仪报警", DataType.ValueType.NUM, 0, -5);
 
             dataTypes.add(type1);
             dataTypes.add(type2);
@@ -134,17 +134,17 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("自观警告");
         if (logs != null && logs.size() > 0){
             awosAlarmLog = logs.get(0);
-            DataType type18 = new DataType(awosAlarmLog, "AWOS_LT31_EX_ALARM", "LT31总体状态警告", DataType.ValueType.NUM, 18);
-            DataType type19 = new DataType(awosAlarmLog, "AWOS_LT31_RX_ALARM", "LT31发射机状态警告", DataType.ValueType.NUM, 19);
-            DataType type20 = new DataType(awosAlarmLog, "AWOS_LT31 PWD_ALARM", "LT31 PWD 状态警告", DataType.ValueType.NUM, 20);
-            DataType type21 = new DataType(awosAlarmLog, "AWOS_LM21_ALARM", "LM21背景亮度仪警告", DataType.ValueType.NUM, 21);
-            DataType type22 = new DataType(awosAlarmLog, "AWOS_FD12_ALARM", "FD12前散射式能见度仪警告", DataType.ValueType.NUM, 22);
-            DataType type23 = new DataType(awosAlarmLog, "AWOS_FD12P_ALARM", "FD12P前散射式能见度仪报警", DataType.ValueType.NUM, 23);
-            DataType type24 = new DataType(awosAlarmLog, "AWOS_FS11_ALARM", "FS11前向散射仪警告", DataType.ValueType.NUM, 24);
-            DataType type25 = new DataType(awosAlarmLog, "AWOS_MILOS500_ALARM", "MILOS500自动气象站警告", DataType.ValueType.NUM, 25);
-            DataType type26 = new DataType(awosAlarmLog, "AWOS_MAWS301_ALARM", "MAWS301自动气象站警告", DataType.ValueType.NUM, 26);
-            DataType type27 = new DataType(awosAlarmLog, "AWOS_CBME80B_ALARM", "CBME80B设备状态警告", DataType.ValueType.NUM, 27);
-            DataType type28 = new DataType(awosAlarmLog, "AWOS_TR30_ALARM", "TR30大气透射仪警告", DataType.ValueType.NUM, 28);
+            DataType type18 = new DataType(awosAlarmLog, "AWOS_LT31_EX_ALARM", "LT31总体状态警告", DataType.ValueType.NUM,0,-5);
+            DataType type19 = new DataType(awosAlarmLog, "AWOS_LT31_RX_ALARM", "LT31发射机状态警告", DataType.ValueType.NUM, 0,-5);
+            DataType type20 = new DataType(awosAlarmLog, "AWOS_LT31 PWD_ALARM", "LT31 PWD 状态警告", DataType.ValueType.NUM, 0,-5);
+            DataType type21 = new DataType(awosAlarmLog, "AWOS_LM21_ALARM", "LM21背景亮度仪警告", DataType.ValueType.NUM, 0,-5);
+            DataType type22 = new DataType(awosAlarmLog, "AWOS_FD12_ALARM", "FD12前散射式能见度仪警告", DataType.ValueType.NUM, 0,-5);
+            DataType type23 = new DataType(awosAlarmLog, "AWOS_FD12P_ALARM", "FD12P前散射式能见度仪报警", DataType.ValueType.NUM, 0,-5);
+            DataType type24 = new DataType(awosAlarmLog, "AWOS_FS11_ALARM", "FS11前向散射仪警告", DataType.ValueType.NUM, 0,-5);
+            DataType type25 = new DataType(awosAlarmLog, "AWOS_MILOS500_ALARM", "MILOS500自动气象站警告", DataType.ValueType.NUM, 0,-5);
+            DataType type26 = new DataType(awosAlarmLog, "AWOS_MAWS301_ALARM", "MAWS301自动气象站警告", DataType.ValueType.NUM, 0,-5);
+            DataType type27 = new DataType(awosAlarmLog, "AWOS_CBME80B_ALARM", "CBME80B设备状态警告", DataType.ValueType.NUM, 0,-5);
+            DataType type28 = new DataType(awosAlarmLog, "AWOS_TR30_ALARM", "TR30大气透射仪警告", DataType.ValueType.NUM, 0,-5);
 
             dataTypes.add(type18);
             dataTypes.add(type19);
@@ -168,18 +168,18 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("雷达报警");
         if (logs != null && logs.size() > 0){
             radarWarnLog = logs.get(0);
-            DataType type29 = new DataType(radarWarnLog, "RADAR_GLC-18_LAUCH_WARN", "GLC-18发射系统报警", DataType.ValueType.NUM, 29);
-            DataType type30 = new DataType(radarWarnLog, "RADAR_GLC-18_RECEIVE_WARN", "GLC-18接收系统报警", DataType.ValueType.NUM, 30);
-            DataType type31 = new DataType(radarWarnLog, "RADAR_GLC-18_SERVO_WARN", "GLC-18伺服系统报警", DataType.ValueType.NUM, 31);
-            DataType type32 = new DataType(radarWarnLog, "RADAR_ADWR_LAUCH_WARN", "ADWR发射系统报警", DataType.ValueType.NUM, 32);
-            DataType type33 = new DataType(radarWarnLog, "RADAR_ADWR_RECEIVE_WARN", "ADWR接收系统报警", DataType.ValueType.NUM, 33);
-            DataType type34 = new DataType(radarWarnLog, "RADAR_ADWR_SIGNAL_WARN", "ADWR信号处理和监控系统报警", DataType.ValueType.NUM, 34);
-            DataType type35 = new DataType(radarWarnLog, "RADAR_ADWR_SERVO_WARN", "ADWR伺服系统报警", DataType.ValueType.NUM, 35);
-            DataType type36 = new DataType(radarWarnLog, "RADAR_714CDN_LAUCH_WARN", "714CDN发射系统报警", DataType.ValueType.NUM, 36);
-            DataType type37 = new DataType(radarWarnLog, "RADAR_714CDN_RECEIVE_WARN", "714CDN接收系统报警", DataType.ValueType.NUM, 37);
-            DataType type38 = new DataType(radarWarnLog, "RADAR_714CDN_SIGNAL_WARN", "714CDN信号处理系统报警", DataType.ValueType.NUM, 38);
-            DataType type39 = new DataType(radarWarnLog, "RADAR_714CDN_SERVO_WARN", "714CDN伺服系统报警", DataType.ValueType.NUM, 39);
-            DataType type40 = new DataType(radarWarnLog, "RADAR_714CDN_DISTRIBU_WARN", "714CDN配电系统报警", DataType.ValueType.NUM, 40);
+            DataType type29 = new DataType(radarWarnLog, "RADAR_GLC-18_LAUCH_WARN", "GLC-18发射系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type30 = new DataType(radarWarnLog, "RADAR_GLC-18_RECEIVE_WARN", "GLC-18接收系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type31 = new DataType(radarWarnLog, "RADAR_GLC-18_SERVO_WARN", "GLC-18伺服系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type32 = new DataType(radarWarnLog, "RADAR_ADWR_LAUCH_WARN", "ADWR发射系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type33 = new DataType(radarWarnLog, "RADAR_ADWR_RECEIVE_WARN", "ADWR接收系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type34 = new DataType(radarWarnLog, "RADAR_ADWR_SIGNAL_WARN", "ADWR信号处理和监控系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type35 = new DataType(radarWarnLog, "RADAR_ADWR_SERVO_WARN", "ADWR伺服系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type36 = new DataType(radarWarnLog, "RADAR_714CDN_LAUCH_WARN", "714CDN发射系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type37 = new DataType(radarWarnLog, "RADAR_714CDN_RECEIVE_WARN", "714CDN接收系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type38 = new DataType(radarWarnLog, "RADAR_714CDN_SIGNAL_WARN", "714CDN信号处理系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type39 = new DataType(radarWarnLog, "RADAR_714CDN_SERVO_WARN", "714CDN伺服系统报警", DataType.ValueType.NUM, 0,-5);
+            DataType type40 = new DataType(radarWarnLog, "RADAR_714CDN_DISTRIBU_WARN", "714CDN配电系统报警", DataType.ValueType.NUM, 0,-5);
 
             dataTypes.add(type29);
             dataTypes.add(type30);
@@ -204,10 +204,10 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("报文实时应到");
         if (logs != null && logs.size() > 0) {
             messageArrivedLog = logs.get(0);
-            DataType type41 = new DataType(messageArrivedLog, "MESSAGE_FC_AMOUNT", "FC报文实时应到数量", DataType.ValueType.NUM, 41);
-            DataType type42 = new DataType(messageArrivedLog, "MESSAGE_FT_AMOUNT", "FT报文实时应到数量", DataType.ValueType.NUM, 42);
-            DataType type43 = new DataType(messageArrivedLog, "MESSAGE_SA_AMOUNT", "SA报文实时应到数量", DataType.ValueType.NUM, 43);
-            DataType type44 = new DataType(messageArrivedLog, "MESSAGE_SP_AMOUNT", "SP报文实时应到数量", DataType.ValueType.NUM, 44);
+            DataType type41 = new DataType(messageArrivedLog, "MESSAGE_FC_AMOUNT", "FC报文实时应到数量", DataType.ValueType.NUM, 0,-25);
+            DataType type42 = new DataType(messageArrivedLog, "MESSAGE_FT_AMOUNT", "FT报文实时应到数量", DataType.ValueType.NUM, 0,-25);
+            DataType type43 = new DataType(messageArrivedLog, "MESSAGE_SA_AMOUNT", "SA报文实时应到数量", DataType.ValueType.NUM, 0,-25);
+            DataType type44 = new DataType(messageArrivedLog, "MESSAGE_SP_AMOUNT", "SP报文实时应到数量", DataType.ValueType.NUM, 0,-25);
 
             dataTypes.add(type41);
             dataTypes.add(type42);
@@ -224,10 +224,10 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("报文迟到报");
         if (logs != null && logs.size() > 0) {
             messageLateLog = logs.get(0);
-            DataType type42 = new DataType(messageArrivedLog, "MESSAGE_SA_LATE", "SA迟到报", DataType.ValueType.NUM, 42);
-            DataType type43 = new DataType(messageArrivedLog, "MESSAGE_SA_HALF_LATE", "SA半点报迟到报", DataType.ValueType.NUM, 43);
-            DataType type44 = new DataType(messageArrivedLog, "MESSAGE_FC_LATE", "FC迟到报", DataType.ValueType.NUM, 44);
-            DataType type45 = new DataType(messageArrivedLog, "MESSAGE_FT_LATE", "FT迟到报", DataType.ValueType.NUM, 45);
+            DataType type42 = new DataType(messageArrivedLog, "MESSAGE_SA_LATE", "SA迟到报", DataType.ValueType.NUM, 0,-25);
+            DataType type43 = new DataType(messageArrivedLog, "MESSAGE_SA_HALF_LATE", "SA半点报迟到报", DataType.ValueType.NUM, 0,-25);
+            DataType type44 = new DataType(messageArrivedLog, "MESSAGE_FC_LATE", "FC迟到报", DataType.ValueType.NUM, 0,-25);
+            DataType type45 = new DataType(messageArrivedLog, "MESSAGE_FT_LATE", "FT迟到报", DataType.ValueType.NUM, 0,-25);
 
             dataTypes.add(type42);
             dataTypes.add(type43);
@@ -244,9 +244,9 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("报文错误报");
         if (logs != null && logs.size() > 0) {
             messageErrorLog = logs.get(0);
-            DataType type43 = new DataType(messageErrorLog, "MESSAGE_DATA_AMOUNT", "数据库数量", DataType.ValueType.NUM, 43);
-            DataType type44 = new DataType(messageErrorLog, "MESSAGE_CALL_COUNT", "总拨打电话次数", DataType.ValueType.NUM, 44);
-            DataType type45 = new DataType(messageErrorLog, "MESSAGE_FILE_AMOUNT", "留底文件数量", DataType.ValueType.NUM, 45);
+            DataType type43 = new DataType(messageErrorLog, "MESSAGE_DATA_AMOUNT", "数据库数量", DataType.ValueType.NUM, 0,-33);
+            DataType type44 = new DataType(messageErrorLog, "MESSAGE_CALL_COUNT", "总拨打电话次数", DataType.ValueType.NUM,0,-33);
+            DataType type45 = new DataType(messageErrorLog, "MESSAGE_FILE_AMOUNT", "留底文件数量", DataType.ValueType.NUM,0,-33);
 
             dataTypes.add(type43);
             dataTypes.add(type44);
