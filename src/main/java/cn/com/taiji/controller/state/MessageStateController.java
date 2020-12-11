@@ -94,4 +94,19 @@ public class MessageStateController {
         result.setMsg("返回每个监控指标所代表的百分比");
         return result;
     }
+
+    /**
+     * @描述   得到得分页面的得分表达式， 及总分， 到时候在页面上把等号后的分数截取，放大显示
+     * @创建人 Mayu
+     * @创建时间 2020/12/11
+     */
+    @GetMapping("/getMessageFormula")
+    public JsonResult getMessageFormula(String catalogInfo){
+        catalogInfo = "报文";
+        String messageFormula = messageStateService.getMessageFormula(catalogInfo);
+        JsonResult result = new JsonResult();
+        result.setObj(messageFormula);
+        result.setMsg("得分界面总分表达式");
+        return result;
+    }
 }

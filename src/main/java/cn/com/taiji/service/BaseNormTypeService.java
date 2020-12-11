@@ -43,4 +43,18 @@ public interface BaseNormTypeService {
      * @创建时间 2020/12/10
     */
     List<BaseNormType> findTypesByCatalog(String catalogInfo);
+
+    /**
+     * @描述   根据中文名称INFO 查找
+     * @创建人 Mayu
+     * @创建时间 2020/12/11
+    */
+    BaseNormType findByInfo(String info);
+
+    /**
+     * @描述   得到点击分数之后计算公式和计算公式所得到的总分数
+     * @创建人 Mayu
+     * @创建时间 2020/12/11
+    */
+    String getFormulaAndScoreString(String catalogInfo);
 }

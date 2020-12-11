@@ -59,4 +59,10 @@ public class MessageStateServiceImpl implements MessageStateService {
         Map<String, Float> weight = schemeService.getBaseNormWeight(catalogInfo);
         return weight;
     }
+
+    @Override
+    public String getMessageFormula(String catalogInfo) {
+        String formula = baseNormTypeService.getFormulaAndScoreString(catalogInfo);
+        return formula;
+    }
 }

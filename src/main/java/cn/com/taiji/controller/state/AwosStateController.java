@@ -115,4 +115,19 @@ public class AwosStateController {
         result.setMsg("返回每个监控指标所代表的百分比");
         return result;
     }
+
+    /**
+     * @描述   得到得分页面的得分表达式， 及总分， 到时候在页面上把等号后的分数截取，放大显示
+     * @创建人 Mayu
+     * @创建时间 2020/12/11
+    */
+    @GetMapping("/getAwosFormula")
+    public JsonResult getAwosFormula(String catalogInfo){
+        catalogInfo = "自观";
+        String awosFormula = awosStateService.getAwosFormula(catalogInfo);
+        JsonResult result = new JsonResult();
+        result.setObj(awosFormula);
+        result.setMsg("得分界面总分表达式");
+        return result;
+    }
 }

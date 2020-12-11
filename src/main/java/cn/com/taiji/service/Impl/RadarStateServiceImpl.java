@@ -60,4 +60,10 @@ public class RadarStateServiceImpl implements RadarStateService {
         Map<String, Float> weight = schemeService.getBaseNormWeight(catalogInfo);
         return weight;
     }
+
+    @Override
+    public String getRadarFormula(String catalogInfo) {
+        String formula = baseNormTypeService.getFormulaAndScoreString(catalogInfo);
+        return formula;
+    }
 }

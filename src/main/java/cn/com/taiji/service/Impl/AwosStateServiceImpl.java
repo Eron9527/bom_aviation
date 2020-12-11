@@ -3,7 +3,6 @@ package cn.com.taiji.service.Impl;
 import cn.com.taiji.domain.state.AwosState;
 import cn.com.taiji.domain.state.BaseNormType;
 import cn.com.taiji.domain.state.DataType;
-import cn.com.taiji.domain.state.NormOfScheme;
 import cn.com.taiji.repository.state.AwosStateRepo;
 import cn.com.taiji.service.AwosStateService;
 import cn.com.taiji.service.BaseNormTypeService;
@@ -42,7 +41,7 @@ public class AwosStateServiceImpl implements AwosStateService {
 
     @Override
     public Map<String, List<DataType>> getScoreDetail(String catalogInfo) {
-        Map<String, List<DataType>> dataTypeMap  = baseNormTypeService.getNormTypeAsKeyDataTypeAsValueByCatalog(catalogInfo);
+        Map<String, List<DataType>> dataTypeMap = baseNormTypeService.getNormTypeAsKeyDataTypeAsValueByCatalog(catalogInfo);
         return dataTypeMap;
     }
 
@@ -64,5 +63,11 @@ public class AwosStateServiceImpl implements AwosStateService {
     public Map<String, Float> getBaseNormWeight(String catalogInfo) {
         Map<String, Float> weight = schemeService.getBaseNormWeight(catalogInfo);
         return weight;
+    }
+
+    @Override
+    public String getAwosFormula(String catalogInfo) {
+        String formula = baseNormTypeService.getFormulaAndScoreString(catalogInfo);
+        return formula;
     }
 }

@@ -10,4 +10,6 @@ public interface BaseNormTypeRepo extends JpaRepository <BaseNormType ,Long>{
 
     @Query(value = "from BaseNormType where catalog.info=?1")
     List<BaseNormType> findByCatalogInfo(String catalogInfo);
+
+    BaseNormType findByInfo(String info);
 }

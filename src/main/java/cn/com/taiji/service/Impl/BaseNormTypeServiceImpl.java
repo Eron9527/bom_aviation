@@ -5,6 +5,7 @@ import cn.com.taiji.domain.state.DataType;
 import cn.com.taiji.repository.state.BaseNormTypeRepo;
 import cn.com.taiji.service.BaseNormTypeService;
 import cn.com.taiji.service.DataTypeService;
+import cn.com.taiji.service.SchemeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
     private BaseNormTypeRepo baseNormTypeRepo;
     @Autowired
     private DataTypeService dataTypeService;
+    @Autowired
+    private SchemeService schemeService;
 
     @Override
     public void add() {
@@ -111,5 +114,42 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
     public List<BaseNormType> findTypesByCatalog(String catalogInfo) {
         List<BaseNormType> types = baseNormTypeRepo.findByCatalogInfo(catalogInfo);
         return types;
+    }
+
+    @Override
+    public BaseNormType findByInfo(String info) {
+        BaseNormType type = baseNormTypeRepo.findByInfo(info);
+        return type;
+    }
+
+    @Override
+    public String getFormulaAndScoreString(String catalogInfo) {
+        List<String> factors = new ArrayList<String>();
+        List<Integer> scores = new ArrayList<Integer>();
+        // 得到每个监控项的分数
+        Map<String, Integer> baseNormScores = this.getBaseNormScore(catalogInfo);
+        // 得到每个监控项的比例
+        Map<String, Float> baseNormWeights = schemeService.getBaseNormWeight(catalogInfo);
+        for (Map.Entry<String, Integer> scoresEntry : baseNormScores.entrySet()) {
+            for (Map.Entry<String, Float> weightsEntry : baseNormWeights.entrySet()){
+                if (scoresEntry.getKey().equals(weightsEntry.getKey())) {
+                    // 这里没有做计算，只把参与计算的的因子添加到list 中
+                    factors.add(scoresEntry.getValue()+"*"+weightsEntry.getValue());
+                    // 强转的精度。待测试。
+                    scores.add((int) (scoresEntry.getValue()*weightsEntry.getValue()));
+                }
+            }
+        }
+
+        String famula = "";
+        for(String factor : factors){
+            famula=famula+"+"+factor;
+        }
+        int score = 0;
+        for (int sc : scores){
+            score += sc;
+        }
+        //  返回拼接好的式子和结果的字符串
+        return famula+" = "+score;
     }
 }

@@ -50,4 +50,11 @@ public interface SatelStateService {
      * @创建时间 2020/12/10
     */
     Map<String, Float> getBaseNormWeight(String catalogInfo);
+
+    /**
+     * @描述    获取所有指标项所凑成的公式。及分数结果。
+     * @创建人 Mayu
+     * @创建时间 2020/12/11
+    */
+    String getSatelFormula(String catalogInfo);
 }

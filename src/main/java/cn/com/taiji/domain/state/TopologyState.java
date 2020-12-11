@@ -2,6 +2,9 @@ package cn.com.taiji.domain.state;
 
 import javax.persistence.*;
 
+/**
+ *    拓扑图中的实体， 包括交换机，服务器，及硬件信息
+ */
 @Entity
 @Table(name="TOPOLOGY_STATE")
 public class TopologyState {
@@ -14,8 +17,6 @@ public class TopologyState {
     private DevType type;     //设备类型   服务器/交换机
     @Column(name = "CONNECT_STATE")
     private boolean connectState;    //连接状态  正常/中断
-    @Column(name = "TRANS_SPEED")
-    private int transSpeed;   // 传输速率MB/s
     @Column(name = "DEV_ADDRESS")
     private String devAddress;    // 服务器所在地址/交换机为空
 
@@ -32,9 +33,18 @@ public class TopologyState {
             this.info = info;
         }
 
-        private DevType(String info) {
+        DevType(String info) {
             this.info = info;
         }
+    }
+
+    public TopologyState() {
+    }
+
+    public TopologyState(DevType type, boolean connectState, String devAddress) {
+        this.type = type;
+        this.connectState = connectState;
+        this.devAddress = devAddress;
     }
 
     public Long getId() {
@@ -59,14 +69,6 @@ public class TopologyState {
 
     public void setConnectState(boolean connectState) {
         this.connectState = connectState;
-    }
-
-    public int getTransSpeed() {
-        return transSpeed;
-    }
-
-    public void setTransSpeed(int transSpeed) {
-        this.transSpeed = transSpeed;
     }
 
     public String getDevAddress() {

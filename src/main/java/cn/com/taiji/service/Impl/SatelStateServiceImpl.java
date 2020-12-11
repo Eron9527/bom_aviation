@@ -60,4 +60,10 @@ public class SatelStateServiceImpl implements SatelStateService {
         Map<String, Float> weight = schemeService.getBaseNormWeight(catalogInfo);
         return weight;
     }
+
+    @Override
+    public String getSatelFormula(String catalogInfo) {
+        String formula = baseNormTypeService.getFormulaAndScoreString(catalogInfo);
+        return formula;
+    }
 }
