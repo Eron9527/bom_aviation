@@ -26,17 +26,34 @@ public class BaseNormType {
     private Integer rank;
     @Column(name = "FORMULA_DESC")       // 计算公式说明
     private String formulaDesc;
+    @Column(name = "SCORE_TYPE")
+    private ScoreType scoreType;      // 是否有底分
+
+    public enum ScoreType {
+        HUNDRED("100"),
+        ZERO("0");
+
+        private String info;
+        private ScoreType(String info){
+            this.info=info;
+        }
+        public  String getInfo(){
+            return info;
+        }
+
+    }
 
     public BaseNormType() {
 
     }
 
-    public BaseNormType(DataCatalog catalog, String info, String formula, Integer rank, String formulaDesc) {
+    public BaseNormType(DataCatalog catalog, String info, String formula, Integer rank, String formulaDesc, ScoreType scoreType) {
         this.catalog = catalog;
         this.info = info;
         this.formula = formula;
         this.rank = rank;
         this.formulaDesc = formulaDesc;
+        this.scoreType = scoreType;
     }
 
     public Long getId() {
@@ -85,5 +102,13 @@ public class BaseNormType {
 
     public void setFormulaDesc(String formulaDesc) {
         this.formulaDesc = formulaDesc;
+    }
+
+    public ScoreType getScoreType() {
+        return scoreType;
+    }
+
+    public void setScoreType(ScoreType scoreType) {
+        this.scoreType = scoreType;
     }
 }

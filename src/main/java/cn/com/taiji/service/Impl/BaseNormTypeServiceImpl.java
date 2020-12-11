@@ -71,6 +71,7 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
             String famula = entry.getValue().getFormula();
             List<String> codes = Arrays.asList(famula.replace("=","").split("\\+|-"));
             BaseNormType type = entry.getValue();
+
             // 如果指标项大于一个监控项则进行加减运算
             if (codes != null && codes.size() > 1){
                 List<String> calculates = new ArrayList<>();
@@ -83,7 +84,9 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
                         calculates.add("-");
                     }
                 }
-                int score1 = 0;
+
+                // 初始分数为用户设定的100 或者0 分， 将枚举类型转换为Int 用于计算
+                int score1 = Integer.valueOf(type.getScoreType().getInfo());
                 //对同一指标项下的监控项进行分数累加
                 for (String code : codes){
                     for(String cal : calculates){
@@ -91,12 +94,13 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
                         score1 = cal.equals("+")? +dataType.getRank() : -dataType.getRank();
                     }
                 }
+
                 scoreMap.put(entry.getKey(), score1);
 
             }else{   // 只有一个监控项的得分计算
                 String code = codes.get(0);
                 DataType dataType = dataTypeService.getTypeByCode(code);
-                int score2 = dataType.getRank();
+                int score2 = Integer.valueOf(type.getScoreType().getInfo());
                 scoreMap.put(entry.getKey(), score2);
             }
         }

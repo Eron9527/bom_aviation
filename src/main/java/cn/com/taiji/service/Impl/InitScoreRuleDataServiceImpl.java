@@ -274,9 +274,9 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         List<DataCatalog> logs = dataCatalogRepo.findByInfo("自观");
         if (logs != null && logs.size() > 0) {
             awosLog = logs.get(0);
-            BaseNormType type1 = new BaseNormType(awosLog, "前向散射仪监控状态", "=AWOS_FS11_WARN", 1, "前向散射仪FS11");
-            BaseNormType type2 = new BaseNormType(awosLog, "跑道现场环境实时状态", "=AWOS_LT31_WARN", 2, "LT31监控跑道实时环境");
-            BaseNormType type3 = new BaseNormType(awosLog, "大气透射仪监控状态", "=AWOS_LT31_EX_WARN+AWOS_MOR_WRAN+AWOS_LT31_RX_WARN", 3, "大气透射仪实时状态监控");
+            BaseNormType type1 = new BaseNormType(awosLog, "前向散射仪监控状态", "=AWOS_FS11_WARN", 1, "前向散射仪FS11", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type2 = new BaseNormType(awosLog, "跑道现场环境实时状态", "=AWOS_LT31_WARN", 2, "LT31监控跑道实时环境", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type3 = new BaseNormType(awosLog, "大气透射仪监控状态", "=AWOS_LT31_EX_WARN+AWOS_MOR_WRAN+AWOS_LT31_RX_WARN", 3, "大气透射仪实时状态监控", BaseNormType.ScoreType.HUNDRED);
             baseNromTypes.add(type1);
             baseNromTypes.add(type2);
             baseNromTypes.add(type3);
@@ -291,9 +291,9 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("雷达图");
         if (logs != null && logs.size() > 0) {
             radarLog = logs.get(0);
-            BaseNormType type4 = new BaseNormType(radarLog, "场内各雷达发射机状态", "=RADAR_ADWR_LAUCH_WARN+RADAR_714CDN_LAUCH_WARN+RADAR_GLC-18_LAUCH_WARN", 1, "前向散射仪FS11");
-            BaseNormType type5 = new BaseNormType(radarLog, "场内各雷达接收机状态", "=RADAR_GLC-18_RECEIVE_WARN+RADAR_ADWR_RECEIVE_WARN+RADAR_714CDN_RECEIVE_WARN", 1, "前向散射仪FS11");
-            BaseNormType type6 = new BaseNormType(radarLog, "场内各雷达信号处理和监控系统状态", "=RADAR_714CDN_SIGNAL_WARN+RADAR_714CDN_SIGNAL_WARN", 1, "前向散射仪FS11");
+            BaseNormType type4 = new BaseNormType(radarLog, "场内各雷达发射机状态", "=RADAR_ADWR_LAUCH_WARN+RADAR_714CDN_LAUCH_WARN+RADAR_GLC-18_LAUCH_WARN", 1, "前向散射仪FS11", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type5 = new BaseNormType(radarLog, "场内各雷达接收机状态", "=RADAR_GLC-18_RECEIVE_WARN+RADAR_ADWR_RECEIVE_WARN+RADAR_714CDN_RECEIVE_WARN", 1, "前向散射仪FS11", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type6 = new BaseNormType(radarLog, "场内各雷达信号处理和监控系统状态", "=RADAR_714CDN_SIGNAL_WARN+RADAR_714CDN_SIGNAL_WARN", 1, "前向散射仪FS11", BaseNormType.ScoreType.HUNDRED);
             baseNromTypes.add(type4);
             baseNromTypes.add(type5);
             baseNromTypes.add(type6);
@@ -307,9 +307,9 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("雷达图");
         if (logs != null && logs.size() > 0) {
             satelLog = logs.get(0);
-            BaseNormType type7 = new BaseNormType(satelLog, "风云2卫星图监控状态", "=SATEL_WIND2_STATE", 1, "风云2卫星");
-            BaseNormType type8 = new BaseNormType(satelLog, "风云4卫星图监控状态", "=SATEL_WIND4_STATE", 1, "风云4卫星");
-            BaseNormType type9 = new BaseNormType(satelLog, "葵花8卫星图监控状态", "=SATEL_KH8_STATE", 1, "葵花8卫星");
+            BaseNormType type7 = new BaseNormType(satelLog, "风云2卫星图监控状态", "=SATEL_WIND2_STATE", 1, "风云2卫星", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type8 = new BaseNormType(satelLog, "风云4卫星图监控状态", "=SATEL_WIND4_STATE", 1, "风云4卫星", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type9 = new BaseNormType(satelLog, "葵花8卫星图监控状态", "=SATEL_KH8_STATE", 1, "葵花8卫星", BaseNormType.ScoreType.HUNDRED);
             baseNromTypes.add(type7);
             baseNromTypes.add(type8);
             baseNromTypes.add(type9);
@@ -323,9 +323,9 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         logs = dataCatalogRepo.findByInfo("雷达图");
         if (logs != null && logs.size() > 0) {
             messageLog = logs.get(0);
-            BaseNormType type10 = new BaseNormType(messageLog, "报文实时数量监控", "=MESSAGE_FC_AMOUNT&&MESSAGE_FT_AMOUNT+MESSAGE_SA_AMOUNT+MESSAGE_SP_AMOUNT", 1, "报文实时数量");
-            BaseNormType type11 = new BaseNormType(messageLog, "迟到报监控状态", "=MESSAGE_SA_LATE+MESSAGE_SA_HALF_LATE+MESSAGE_FC_LATE&&MESSAGE_FT_LATE", 1, "迟到报监控");
-            BaseNormType type12 = new BaseNormType(messageLog, "错误报监控状态", "+MESSAGE_DATA_AMOUNT+MESSAGE_CALL_COUNT+MESSAGE_FILE_AMOUNT", 1, "错误报监控");
+            BaseNormType type10 = new BaseNormType(messageLog, "报文实时数量监控", "=MESSAGE_FC_AMOUNT&&MESSAGE_FT_AMOUNT+MESSAGE_SA_AMOUNT+MESSAGE_SP_AMOUNT", 1, "报文实时数量", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type11 = new BaseNormType(messageLog, "迟到报监控状态", "=MESSAGE_SA_LATE+MESSAGE_SA_HALF_LATE+MESSAGE_FC_LATE&&MESSAGE_FT_LATE", 1, "迟到报监控", BaseNormType.ScoreType.HUNDRED);
+            BaseNormType type12 = new BaseNormType(messageLog, "错误报监控状态", "+MESSAGE_DATA_AMOUNT+MESSAGE_CALL_COUNT+MESSAGE_FILE_AMOUNT", 1, "错误报监控", BaseNormType.ScoreType.HUNDRED);
             baseNromTypes.add(type10);
             baseNromTypes.add(type11);
             baseNromTypes.add(type12);

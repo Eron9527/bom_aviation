@@ -22,7 +22,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/awos")
 @CrossOrigin
-public class AwosStateController<add> {
+public class AwosStateController {
 
     @Autowired
     private AwosStateService awosStateService;
