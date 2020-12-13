@@ -24,10 +24,12 @@ public class SatelStateController {
     private SatelStateService satelStateService;
 
     @GetMapping("/getNewSatel")
-    public String getNewState(Model model){
+    public JsonResult getNewState(Model model){
         List<SatelState> satelStateList = satelStateService.getNewsState();
-        model.addAttribute("satelStates", satelStateList);
-        return "index";
+        JsonResult result = new JsonResult();
+        result.setObj(result);
+        result.setMsg("返回卫星最新信息");
+        return result;
     }
 
     /**

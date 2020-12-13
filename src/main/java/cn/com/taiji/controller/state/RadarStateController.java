@@ -24,10 +24,12 @@ public class RadarStateController {
     private RadarStateService radarStateService;
 
     @GetMapping("/getNewRadar")
-    public String getNewState(Model model){
+    public JsonResult getNewState(Model model){
         List<RadarState> radarStateList = radarStateService.getNewsState();
-        model.addAttribute("radarStates", radarStateList);
-        return "index";
+        JsonResult result = new JsonResult();
+        result.setObj(result);
+        result.setMsg("返回雷达最新信息");
+        return result;
     }
 
     /**

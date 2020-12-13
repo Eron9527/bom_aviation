@@ -17,10 +17,7 @@ public class Welcome {
     private AwosStateService awosStateService;
 
     @RequestMapping("/getWholeScore")
-    public JsonResult indexHtml(ModelAndView model) {
-
-
-
+    public String indexHtml(ModelAndView model) {
         return "index";
     }
 

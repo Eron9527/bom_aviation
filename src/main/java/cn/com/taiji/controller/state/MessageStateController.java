@@ -24,10 +24,12 @@ public class MessageStateController {
     private MessageStateService messageStateService;
 
     @GetMapping("/getNewMessage")
-    public String getNewState(Model model) {
+    public JsonResult getNewState(Model model) {
         List<MessageState> messageStateList = messageStateService.getNewsState();
-        model.addAttribute("messageStates", messageStateList);
-        return "index";
+        JsonResult result = new JsonResult();
+        result.setObj(result);
+        result.setMsg("返回报文最新信息");
+        return result;
     }
 
     /**
