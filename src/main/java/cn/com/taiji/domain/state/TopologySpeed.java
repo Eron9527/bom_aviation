@@ -18,6 +18,7 @@ public class TopologySpeed {
     private int transSpeed;   // 传输速率MB/s
     @Column(name = "CATALOG_START")
     private String from;  //起始段
+
     @Column(name = "CATALOG_END")
     private String to;    //结束段
 
