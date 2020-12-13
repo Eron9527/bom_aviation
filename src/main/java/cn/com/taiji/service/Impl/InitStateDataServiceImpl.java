@@ -1,13 +1,7 @@
 package cn.com.taiji.service.Impl;
 
-import cn.com.taiji.domain.state.AwosState;
-import cn.com.taiji.domain.state.MessageState;
-import cn.com.taiji.domain.state.RadarState;
-import cn.com.taiji.domain.state.SatelState;
-import cn.com.taiji.repository.state.AwosStateRepo;
-import cn.com.taiji.repository.state.MessageStateRepo;
-import cn.com.taiji.repository.state.RadarStateRepo;
-import cn.com.taiji.repository.state.SatelStateRepo;
+import cn.com.taiji.domain.state.*;
+import cn.com.taiji.repository.state.*;
 import cn.com.taiji.service.InitStateDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +21,10 @@ public class InitStateDataServiceImpl implements InitStateDataService {
     private RadarStateRepo radarStateRepo;
     @Autowired
     private SatelStateRepo satelStateRepo;
+    @Autowired
+    private TopologyStateRepo topologyStateRepo;
+    @Autowired
+    private TopologySpeedRepo topologySpeedRepo;
 
     @Override
     public void initStateData() {
@@ -34,6 +32,7 @@ public class InitStateDataServiceImpl implements InitStateDataService {
         this.initMessageStateData();
         this.initRadarStateData();
         this.initSatelStateData();
+        this.initTopologyStateData();
     }
 
     public void initAwosStateData(){
@@ -104,5 +103,72 @@ public class InitStateDataServiceImpl implements InitStateDataService {
         stateList.add(state3);
 
         satelStateRepo.saveAll(stateList);
+    }
+
+
+    public void initTopologyStateData(){
+
+        List<TopologyState> stateList = new ArrayList<TopologyState>();
+
+        TopologyState state1 = new TopologyState(TopologyState.DevType.EXCHANGE, true , "100.9.102.100");
+        TopologyState state2 = new TopologyState(TopologyState.DevType.EXCHANGE, true , "100.9.102.101");
+        TopologyState state3 = new TopologyState(TopologyState.DevType.EXCHANGE, true , "100.9.102.102");
+
+        TopologyState state4 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.103");
+        TopologyState state5 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.104");
+        TopologyState state6 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.105");
+
+        TopologyState state7 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.106");
+        TopologyState state8 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.107");
+
+        TopologyState state9 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.108");
+        TopologyState state10 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.109");
+        TopologyState state11 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.110");
+        TopologyState state12 = new TopologyState(TopologyState.DevType.SERVER, true , "100.9.102.111");
+
+        stateList.add(state1);
+        stateList.add(state2);
+        stateList.add(state3);
+        stateList.add(state4);
+        stateList.add(state5);
+        stateList.add(state6);
+        stateList.add(state7);
+        stateList.add(state8);
+        stateList.add(state9);
+        stateList.add(state10);
+        stateList.add(state11);
+        stateList.add(state12);
+
+        topologyStateRepo.saveAll(stateList);
+
+        List<TopologySpeed> speedList = new ArrayList<TopologySpeed>();
+        TopologySpeed speed1 = new TopologySpeed(10, "1","2");
+        TopologySpeed speed2 = new TopologySpeed(10, "2","3");
+
+        TopologySpeed speed3 = new TopologySpeed(10, "4","1");
+        TopologySpeed speed4 = new TopologySpeed(10, "5","1");
+        TopologySpeed speed5 = new TopologySpeed(10, "6","1");
+
+        TopologySpeed speed6 = new TopologySpeed(10, "7","2");
+        TopologySpeed speed7 = new TopologySpeed(10, "8","2");
+
+        TopologySpeed speed8 = new TopologySpeed(10, "9","3");
+        TopologySpeed speed9 = new TopologySpeed(10, "10","3");
+        TopologySpeed speed10 = new TopologySpeed(10, "11","3");
+        TopologySpeed speed11 = new TopologySpeed(10, "12","3");
+
+        speedList.add(speed1);
+        speedList.add(speed2);
+        speedList.add(speed3);
+        speedList.add(speed4);
+        speedList.add(speed5);
+        speedList.add(speed6);
+        speedList.add(speed7);
+        speedList.add(speed8);
+        speedList.add(speed9);
+        speedList.add(speed10);
+        speedList.add(speed11);
+
+        topologySpeedRepo.saveAll(speedList);
     }
 }

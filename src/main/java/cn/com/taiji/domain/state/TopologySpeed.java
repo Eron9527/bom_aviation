@@ -16,17 +16,15 @@ public class TopologySpeed {
     private Long id;
     @Column(name = "TRANS_SPEED")
     private int transSpeed;   // 传输速率MB/s
-    @OneToOne
-    @JoinColumn(name = "CATALOG_START")
-    private TopologyState from;  //起始段
-    @OneToOne
-    @JoinColumn(name = "CATALOG_START")
-    private TopologyState to;    //结束段
+    @Column(name = "CATALOG_START")
+    private String from;  //起始段
+    @Column(name = "CATALOG_END")
+    private String to;    //结束段
 
     public TopologySpeed() {
     }
 
-    public TopologySpeed(int transSpeed, TopologyState from, TopologyState to) {
+    public TopologySpeed(int transSpeed, String from, String to) {
         this.transSpeed = transSpeed;
         this.from = from;
         this.to = to;
