@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,7 +61,11 @@ public class MessageStateController {
         catalogInfo = "报文";
         Map<String, BaseNormType> formula = messageStateService.getFormula(catalogInfo);
         JsonResult result = new JsonResult();
-        result.setObj(formula);
+        List<BaseNormType> normTypes = new ArrayList<BaseNormType>();
+        for (Map.Entry<String, BaseNormType> entry : formula.entrySet()) {
+            normTypes.add(entry.getValue());
+        }
+        result.setObj(normTypes);
         result.setMsg("计算公式及监控指标实体");
         return result;
     }
