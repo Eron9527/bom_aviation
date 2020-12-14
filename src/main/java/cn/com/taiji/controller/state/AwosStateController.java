@@ -75,9 +75,9 @@ public class AwosStateController {
         // 计算公式及监控指标实体
         catalogInfo = "自观";
         Map<String, BaseNormType> formula = awosStateService.getFormula(catalogInfo);
-        List<String> normTypes = new ArrayList<>();
+        List<BaseNormType> normTypes = new ArrayList<>();
         for (Map.Entry<String, BaseNormType> entry : formula.entrySet()) {
-            normTypes.add(entry.getKey());
+            normTypes.add(entry.getValue());
         }
         JsonResult result = new JsonResult();
         result.setObj(normTypes);
