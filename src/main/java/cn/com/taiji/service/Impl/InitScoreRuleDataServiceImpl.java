@@ -256,6 +256,23 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
             System.out.println("------------新建报文错误报分组下的监控项时，没有找到报文错误报分组-------------------");
         }
 
+        // 添加报文迟到监控项
+        DataCatalog satelErronLog = null;
+        logs = dataCatalogRepo.findByInfo("卫星图报警");
+        if (logs != null && logs.size() > 0) {
+            satelErronLog = logs.get(0);
+            DataType type44 = new DataType(satelErronLog, "SATEL_WIND2_STATE", "风云2卫星图状态", DataType.ValueType.NUM, -33,0);
+            DataType type45 = new DataType(satelErronLog, "SATEL_WIND4_STATE", "风云4卫星图状态", DataType.ValueType.NUM, -33,0);
+            DataType type46 = new DataType(satelErronLog, "SATEL_KH8_STATE", "葵花8卫星图监控状态", DataType.ValueType.NUM, -34,0);
+            dataTypes.add(type44);
+            dataTypes.add(type45);
+            dataTypes.add(type46);
+        }else {
+            System.out.println("------------新建卫星图错误报分组下的监控项时，没有找到卫星图错误报分组-------------------");
+        }
+
+
+
         dataTypeRepo.saveAll(dataTypes);
         System.out.println("=============添加监控项结束===========");
 

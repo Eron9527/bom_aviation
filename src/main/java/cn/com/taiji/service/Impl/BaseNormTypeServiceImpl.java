@@ -135,20 +135,30 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
         Map<String, Integer> baseNormScores = this.getBaseNormScore(catalogInfo);
         // 得到每个监控项的比例
         Map<String, Float> baseNormWeights = schemeService.getBaseNormWeight(catalogInfo);
+        float awosWeight = 0l;
+        for (Map.Entry<String, Float> weights : baseNormWeights.entrySet()){
+            awosWeight += weights.getValue();    // 得到所在监控项分组的总百分比
+        }
+
         for (Map.Entry<String, Integer> scoresEntry : baseNormScores.entrySet()) {
             for (Map.Entry<String, Float> weightsEntry : baseNormWeights.entrySet()){
                 if (scoresEntry.getKey().equals(weightsEntry.getKey())) {
                     // 这里没有做计算，只把参与计算的的因子添加到list 中
-                    factors.add(scoresEntry.getValue()+"*"+weightsEntry.getValue());
+                    factors.add(scoresEntry.getValue()+"✕"+(int)(weightsEntry.getValue()/awosWeight*100)+"%");
                     // 强转的精度。待测试。
-                    scores.add((int) (scoresEntry.getValue()*weightsEntry.getValue()));
+                    float a = weightsEntry.getValue()/awosWeight;
+                    scores.add((int) (scoresEntry.getValue()*a));
                 }
             }
         }
 
         String famula = "";
         for(String factor : factors){
-            famula=famula+"+"+factor;
+            if (famula.equals("")){   // 如果是第一个则不加 加号+
+                famula=famula+factor;
+            }else{
+                famula=famula+"+"+factor;
+            }
         }
         int score = 0;
         for (int sc : scores){
