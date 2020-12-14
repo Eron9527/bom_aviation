@@ -130,8 +130,13 @@ public class AwosStateController {
     public JsonResult getAwosFormula(String catalogInfo){
         catalogInfo = "自观";
         String awosFormula = awosStateService.getAwosFormula(catalogInfo);
+        List<String> formulaScore = new ArrayList<>();
+        int index = awosFormula.indexOf("=");
+        String score = awosFormula.substring(index+1);
+        formulaScore.add(awosFormula);
+        formulaScore.add(score);
         JsonResult result = new JsonResult();
-        result.setObj(awosFormula);
+        result.setObj(formulaScore);
         result.setMsg("得分界面总分表达式");
         return result;
     }

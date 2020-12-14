@@ -111,8 +111,13 @@ public class MessageStateController {
     public JsonResult getMessageFormula(String catalogInfo){
         catalogInfo = "报文";
         String messageFormula = messageStateService.getMessageFormula(catalogInfo);
+        List<String> formulaScore = new ArrayList<>();
+        int index = messageFormula.indexOf("=");
+        String score = messageFormula.substring(index+1);
+        formulaScore.add(messageFormula);
+        formulaScore.add(score);
         JsonResult result = new JsonResult();
-        result.setObj(messageFormula);
+        result.setObj(formulaScore);
         result.setMsg("得分界面总分表达式");
         return result;
     }

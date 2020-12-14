@@ -6,17 +6,17 @@ import cn.com.taiji.domain.state.RadarState;
 import cn.com.taiji.service.RadarStateService;
 import cn.com.taiji.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/api/radar")
 @CrossOrigin
 public class RadarStateController {
@@ -40,7 +40,7 @@ public class RadarStateController {
      */
     @GetMapping("/getDataTypes")
     public JsonResult getTypeDetail(Model model, String catalogInfo) {
-        // 获取awos分组下面的监控指标
+        // 获取雷达分组下面的监控指标
         catalogInfo = "雷达图";
         // 指标项和监控项
         Map<String, List<DataType>> types = radarStateService.getScoreDetail(catalogInfo);
@@ -111,8 +111,13 @@ public class RadarStateController {
     public JsonResult getRadarFormula(String catalogInfo){
         catalogInfo = "雷达图";
         String radarFormula = radarStateService.getRadarFormula(catalogInfo);
+        List<String> formulaScore = new ArrayList<>();
+        int index = radarFormula.indexOf("=");
+        String score = radarFormula.substring(index+1);
+        formulaScore.add(radarFormula);
+        formulaScore.add(score);
         JsonResult result = new JsonResult();
-        result.setObj(radarFormula);
+        result.setObj(formulaScore);
         result.setMsg("得分界面总分表达式");
         return result;
     }

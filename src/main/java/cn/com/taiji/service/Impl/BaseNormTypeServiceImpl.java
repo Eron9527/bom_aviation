@@ -94,7 +94,11 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
                 for (String code : codes){
                     for(String cal : calculates){
                         DataType dataType = dataTypeService.getTypeByCode(code);
-                        score1 = cal.equals("+")? +dataType.getRank() : -dataType.getRank();
+                        if (cal.equals("+")){
+                            score1 += (int)dataType.getScore();
+                        }else {
+                            score1 -= (int)dataType.getScore();
+                        }
                     }
                 }
 
@@ -104,6 +108,7 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
                 String code = codes.get(0);
                 DataType dataType = dataTypeService.getTypeByCode(code);
                 int score2 = Integer.valueOf(type.getScoreType().getInfo());
+                score2+=dataType.getScore();
                 scoreMap.put(entry.getKey(), score2);
             }
         }

@@ -107,4 +107,12 @@ public class DataType {
     public void setRank(Integer rank) {
         this.rank = rank;
     }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 }

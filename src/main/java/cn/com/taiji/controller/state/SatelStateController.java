@@ -6,17 +6,17 @@ import cn.com.taiji.domain.state.SatelState;
 import cn.com.taiji.service.SatelStateService;
 import cn.com.taiji.utils.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/api/satel")
 @CrossOrigin
 public class SatelStateController {
@@ -28,7 +28,7 @@ public class SatelStateController {
     public JsonResult getNewState(Model model){
         List<SatelState> satelStateList = satelStateService.getNewsState();
         JsonResult result = new JsonResult();
-        result.setObj(result);
+        result.setObj(satelStateList);
         result.setMsg("返回卫星最新信息");
         return result;
     }
@@ -41,7 +41,7 @@ public class SatelStateController {
     @GetMapping("/getDataTypes")
     public JsonResult getTypeDetail(Model model, String catalogInfo) {
         // 获取卫星分组下面的监控指标
-        catalogInfo = "卫星";
+        catalogInfo = "卫星图";
         // 指标项和监控项
         Map<String, List<DataType>> types = satelStateService.getScoreDetail(catalogInfo);
         JsonResult result = new JsonResult();
@@ -58,7 +58,7 @@ public class SatelStateController {
     @GetMapping("/getBaseNorm")
     public JsonResult getformula(Model model,String catalogInfo) {
         // 计算公式及监控指标实体
-        catalogInfo = "卫星";
+        catalogInfo = "卫星图";
         Map<String, BaseNormType> formula = satelStateService.getFormula(catalogInfo);
         JsonResult result = new JsonResult();
         List<BaseNormType> normTypes = new ArrayList<BaseNormType>();
@@ -78,7 +78,7 @@ public class SatelStateController {
     @GetMapping("/getScores")
     public JsonResult getScore(Model model,String catalogInfo) {
         // 得分（根据计算公式得出结果）
-        catalogInfo = "卫星";
+        catalogInfo = "卫星图";
         Map<String, Integer> score = satelStateService.getBaseNormScore(catalogInfo);
         JsonResult result = new JsonResult();
         result.setObj(score);
@@ -93,7 +93,7 @@ public class SatelStateController {
      */
     @GetMapping("/getScheme")
     public JsonResult getScheme(Model model,String catalogInfo) {
-        catalogInfo = "卫星";
+        catalogInfo = "卫星图";
         // 总分计算：  S1*90%+S2*5%+S3*5%=90  //返回每个监控指标所代表的百分比
         Map<String, Float> scheme= satelStateService.getBaseNormWeight(catalogInfo);
         JsonResult result = new JsonResult();
@@ -111,8 +111,13 @@ public class SatelStateController {
     public JsonResult getRadarFormula(String catalogInfo){
         catalogInfo = "卫星图";
         String satelFormula = satelStateService.getSatelFormula(catalogInfo);
+        List<String> formulaScore = new ArrayList<>();
+        int index = satelFormula.indexOf("=");
+        String score = satelFormula.substring(index+1);
+        formulaScore.add(satelFormula);
+        formulaScore.add(score);
         JsonResult result = new JsonResult();
-        result.setObj(satelFormula);
+        result.setObj(formulaScore);
         result.setMsg("得分界面总分表达式");
         return result;
     }
