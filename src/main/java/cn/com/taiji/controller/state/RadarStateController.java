@@ -40,7 +40,7 @@ public class RadarStateController {
     @GetMapping("/getDataTypes")
     public JsonResult getTypeDetail(Model model, String catalogInfo) {
         // 获取awos分组下面的监控指标
-        catalogInfo = "awos";
+        catalogInfo = "雷达图";
         // 指标项和监控项
         Map<String, List<DataType>> types = radarStateService.getScoreDetail(catalogInfo);
         JsonResult result = new JsonResult();
@@ -57,7 +57,7 @@ public class RadarStateController {
     @GetMapping("/getBaseNorm")
     public JsonResult getformula(Model model,String catalogInfo) {
         // 计算公式及监控指标实体
-        catalogInfo = "awos";
+        catalogInfo = "雷达图";
         Map<String, BaseNormType> formula = radarStateService.getFormula(catalogInfo);
         JsonResult result = new JsonResult();
         result.setObj(formula);
@@ -73,7 +73,7 @@ public class RadarStateController {
     @GetMapping("/getScores")
     public JsonResult getScore(Model model,String catalogInfo) {
         // 得分（根据计算公式得出结果）
-        catalogInfo = "awos";
+        catalogInfo = "雷达图";
         Map<String, Integer> score = radarStateService.getBaseNormScore(catalogInfo);
         JsonResult result = new JsonResult();
         result.setObj(score);
@@ -88,7 +88,7 @@ public class RadarStateController {
      */
     @GetMapping("/getScheme")
     public JsonResult getScheme(Model model,String catalogInfo) {
-        catalogInfo = "awos";
+        catalogInfo = "雷达图";
         // 总分计算：  S1*90%+S2*5%+S3*5%=90  //返回每个监控指标所代表的百分比
         Map<String, Float> scheme= radarStateService.getBaseNormWeight(catalogInfo);
         JsonResult result = new JsonResult();

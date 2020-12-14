@@ -25,9 +25,10 @@ public class Scheme {
 
     }
 
-    public Scheme(String name, String content) {
+    public Scheme(String name, String content, boolean useFlag) {
         this.name = name;
         this.content = content;
+        this.useFlag = useFlag;
     }
 
     public Long getId() {

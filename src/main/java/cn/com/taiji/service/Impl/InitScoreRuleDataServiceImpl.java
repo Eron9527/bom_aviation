@@ -343,7 +343,7 @@ public class InitScoreRuleDataServiceImpl implements InitScoreRuleDataService {
         List<Scheme> schemes = new ArrayList<Scheme>();
 
         // 新建解决方案-
-        Scheme scheme = new Scheme("方案一", "全部指标项方案");
+        Scheme scheme = new Scheme("方案一", "全部指标项方案",true);
         schemeRepo.save(scheme);
         System.out.println("===============保存方案结束================");
 
