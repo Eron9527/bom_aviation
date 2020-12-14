@@ -75,7 +75,7 @@ public class AwosStateController {
         // 计算公式及监控指标实体
         catalogInfo = "自观";
         Map<String, BaseNormType> formula = awosStateService.getFormula(catalogInfo);
-        List<BaseNormType> normTypes = new ArrayList<>();
+        List<BaseNormType> normTypes = new ArrayList<BaseNormType>();
         for (Map.Entry<String, BaseNormType> entry : formula.entrySet()) {
             normTypes.add(entry.getValue());
         }
