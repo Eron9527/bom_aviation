@@ -27,7 +27,7 @@ public class MessageStateController {
     public JsonResult getNewState(Model model) {
         List<MessageState> messageStateList = messageStateService.getNewsState();
         JsonResult result = new JsonResult();
-        result.setObj(result);
+        result.setObj(messageStateList);
         result.setMsg("返回报文最新信息");
         return result;
     }

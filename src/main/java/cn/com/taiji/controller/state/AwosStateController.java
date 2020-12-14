@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -74,8 +75,12 @@ public class AwosStateController {
         // 计算公式及监控指标实体
         catalogInfo = "自观";
         Map<String, BaseNormType> formula = awosStateService.getFormula(catalogInfo);
+        List<String> normTypes = new ArrayList<>();
+        for (Map.Entry<String, BaseNormType> entry : formula.entrySet()) {
+            normTypes.add(entry.getKey());
+        }
         JsonResult result = new JsonResult();
-        result.setObj(formula);
+        result.setObj(normTypes);
         result.setMsg("计算公式及监控指标实体");
         return result;
     }

@@ -27,7 +27,7 @@ public class RadarStateController {
     public JsonResult getNewState(Model model){
         List<RadarState> radarStateList = radarStateService.getNewsState();
         JsonResult result = new JsonResult();
-        result.setObj(result);
+        result.setObj(radarStateList);
         result.setMsg("返回雷达最新信息");
         return result;
     }
