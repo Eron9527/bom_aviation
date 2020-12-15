@@ -91,16 +91,26 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
                 // 初始分数为用户设定的100 或者0 分， 将枚举类型转换为Int 用于计算
                 int score1 = Integer.valueOf(type.getScoreType().getInfo());
                 //对同一指标项下的监控项进行分数累加
-                for (String code : codes){
-                    for(String cal : calculates){
-                        DataType dataType = dataTypeService.getTypeByCode(code);
-                        if (cal.equals("+")){
-                            score1 += (int)dataType.getScore();
-                        }else {
-                            score1 -= (int)dataType.getScore();
-                        }
+                for(int i = 0; i < codes.size(); i++){
+                    DataType dataType = dataTypeService.getTypeByCode(codes.get(i));
+                    if (calculates.get(i).equals("+")){
+                        score1 += (int)dataType.getScore();
+                    }else {
+                        score1 -= (int)dataType.getScore();
                     }
                 }
+
+
+//                for (String code : codes){
+//                    for(String cal : calculates){
+//                        DataType dataType = dataTypeService.getTypeByCode(code);
+//                        if (cal.equals("+")){
+//                            score1 += (int)dataType.getScore();
+//                        }else {
+//                            score1 -= (int)dataType.getScore();
+//                        }
+//                    }
+//                }
 
                 scoreMap.put(entry.getKey(), score1);
 

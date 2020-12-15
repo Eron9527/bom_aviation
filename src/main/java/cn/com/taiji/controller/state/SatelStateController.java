@@ -107,7 +107,7 @@ public class SatelStateController {
      * @创建人 Mayu
      * @创建时间 2020/12/11
      */
-    @GetMapping("/getRadarFormula")
+    @GetMapping("/getSatelFormula")
     public JsonResult getRadarFormula(String catalogInfo){
         catalogInfo = "卫星图";
         String satelFormula = satelStateService.getSatelFormula(catalogInfo);
