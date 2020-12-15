@@ -89,14 +89,14 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
                 }
 
                 // 初始分数为用户设定的100 或者0 分， 将枚举类型转换为Int 用于计算
-                int score1 = Integer.valueOf(type.getScoreType().getInfo());
+                float score1 = Integer.valueOf(type.getScoreType().getInfo());
                 //对同一指标项下的监控项进行分数累加
                 for(int i = 0; i < codes.size(); i++){
                     DataType dataType = dataTypeService.getTypeByCode(codes.get(i));
                     if (calculates.get(i).equals("+")){
-                        score1 += (int)dataType.getScore();
+                        score1 += dataType.getScore();
                     }else {
-                        score1 -= (int)dataType.getScore();
+                        score1 -= dataType.getScore();
                     }
                 }
 
@@ -112,14 +112,14 @@ public class BaseNormTypeServiceImpl implements BaseNormTypeService {
 //                    }
 //                }
 
-                scoreMap.put(entry.getKey(), score1);
+                scoreMap.put(entry.getKey(), Math.round(score1));
 
             }else{   // 只有一个监控项的得分计算
                 String code = codes.get(0);
                 DataType dataType = dataTypeService.getTypeByCode(code);
-                int score2 = Integer.valueOf(type.getScoreType().getInfo());
+                float score2 = Integer.valueOf(type.getScoreType().getInfo());
                 score2+=dataType.getScore();
-                scoreMap.put(entry.getKey(), score2);
+                scoreMap.put(entry.getKey(), Math.round(score2));
             }
         }
         return scoreMap;
